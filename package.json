@@ -18,6 +18,7 @@
   "author": "axtk",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "18.11.10",
     "cross-env": "7.0.3",
     "typescript": "4.9.3"
   }
