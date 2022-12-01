@@ -1,1 +1,3 @@
 # stfm
+
+*String formatting utilities*
