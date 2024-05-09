@@ -4,12 +4,11 @@
   "description": "String formatting utilities",
   "main": "dist/index.js",
   "scripts": {
-    "build": "cross-env npm run clean && npm run compile",
-    "clean": "node -e \"require('fs').rmSync('dist', {force: true, recursive: true});\"",
-    "compile": "tsc",
-    "prepublishOnly": "npm run build",
-    "preversion": "npm run build",
-    "typecheck": "tsc --noEmit"
+    "build": "npm-run-all -s cleanup compile",
+    "cleanup": "node -e \"require('fs').rmSync('dist', {force: true, recursive: true});\"",
+    "compile": "esbuild index.ts --bundle --outfile=dist/index.js --platform=neutral --minify",
+    "prepublishOnly": "npm-run-all -s build",
+    "preversion": "npm-run-all -s build"
   },
   "repository": {
     "type": "git",
@@ -18,10 +17,8 @@
   "author": "axtk",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "7.0.3",
-    "typescript": "4.9.3"
-  },
-  "dependencies": {
-    "@types/node": "18.11.10"
+    "@types/node": "20.12.11",
+    "esbuild": "0.21.1",
+    "npm-run-all": "4.1.5"
   }
 }
