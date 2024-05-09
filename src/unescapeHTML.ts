@@ -3,7 +3,7 @@ import {escapeRegExp} from './escapeRegExp';
 
 const conversionMap = htmlEntityMap.reverse();
 
-export function unescapeHTML(x: any): string {
+export function unescapeHTML(x: unknown): string {
     let s = String(x);
 
     if (!x)

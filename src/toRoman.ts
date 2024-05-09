@@ -17,7 +17,7 @@ const map: [string, number][] = [
 export function toRoman(x: number): string {
     if (typeof x !== 'number')
         return '';
-    
+
     let output = '';
 
     for (let [r, a] of map) {
@@ -26,6 +26,6 @@ export function toRoman(x: number): string {
             x -= a;
         }
     }
-    
+
     return output;
 }
