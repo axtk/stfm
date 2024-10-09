@@ -13,7 +13,7 @@ export function fill<K extends string, T extends Record<K, unknown>>(
         let transform = transformMap?.[key];
 
         s = s.replace(
-            new RegExp(`\\{${escapeRegExp(key)}\\}`, 'g'),
+            new RegExp(escapeRegExp(`{{${key}}}`), 'g'),
             String(transform ? transform(data) : value),
         );
     }
